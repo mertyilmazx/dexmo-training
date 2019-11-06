@@ -1,0 +1,17 @@
+<div class="container" *ngIf="!!result">
+  <div>
+    <button [disabled]="result.page <= 1" (click)="changePage(result.page - 1)">
+      Previous
+    </button>
+    <span>&nbsp;{{ result.page }}&nbsp;</span>
+    <button
+      [disabled]="result.page >= result.total_pages"
+      (click)="changePage(result.page + 1)"
+    >
+      Next
+    </button>
+  </div>
+  <div>
+    <app-user-list [users]="result.data"></app-user-list>
+  </div>
+</div>

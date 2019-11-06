@@ -7,7 +7,7 @@ import { IResult } from '../models/IResult';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class DefaultUserService {
   constructor(private httpClient: HttpClient) {}
 
   /**
