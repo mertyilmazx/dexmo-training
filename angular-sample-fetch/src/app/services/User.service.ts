@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IUser } from '../models/IUser';
 import { IResult } from '../models/IResult';
@@ -13,9 +13,9 @@ export class UserService {
   /**
    * Returns list of user
    */
-  getUser(): Observable<IResult<IUser>> {
-    return this.httpClient.get('https://reqres.in/api/users') as Observable<
-      IResult<IUser>
-    >;
+  getUser(page: number = 1): Observable<IResult<IUser>> {
+    return this.httpClient.get('https://reqres.in/api/users', {
+      params: { page: page.toString() }
+    }) as Observable<IResult<IUser>>;
   }
 }

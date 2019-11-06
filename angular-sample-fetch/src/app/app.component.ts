@@ -19,4 +19,10 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUser().subscribe(result => (this.result = result));
   }
+
+  changePage(pageNumber: number) {
+    this.userService
+      .getUser(pageNumber)
+      .subscribe(result => (this.result = result));
+  }
 }

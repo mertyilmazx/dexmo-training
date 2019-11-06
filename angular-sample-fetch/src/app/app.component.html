@@ -1,16 +1,17 @@
-<table>
-  <tr>
-    <td>Id</td>
-    <td>Email</td>
-    <td>FirstName</td>
-    <td>LastName</td>
-    <td>Avatar</td>
-  </tr>
-  <tr *ngFor="let user of result.data">
-    <td>{{ user.id }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.first_name }}</td>
-    <td>{{ user.last_name }}</td>
-    <td><img [src]="user.avatar" alt="" srcset="" /></td>
-  </tr>
-</table>
+<div class="container" *ngIf="!!result">
+  <div>
+    <button [disabled]="result.page <= 1" (click)="changePage(result.page - 1)">
+      Previous
+    </button>
+    <span>&nbsp;{{ result.page }}&nbsp;</span>
+    <button
+      [disabled]="result.page >= result.total_pages"
+      (click)="changePage(result.page + 1)"
+    >
+      Next
+    </button>
+  </div>
+  <div>
+    <app-user-list [users]="result.data"></app-user-list>
+  </div>
+</div>
