@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,7 @@ import { SecondPageComponent } from 'src/routes/SecondPage/SecondPage.component'
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent, SecondPageComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [FormsModule, BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
